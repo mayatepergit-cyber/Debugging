@@ -2,8 +2,7 @@
 
 int main()
 {
-	unsigned int size = 0;
-
+	int size = 0; // Debug - removed the unsigned so size can be negative
 	int t1 = 0, t2 = 1;
 
 	std::cout << "what is the size of the series? ";
