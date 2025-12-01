@@ -14,22 +14,23 @@ Point::Point(int x, int y)
 	_coord[1] = y;
 }
 
-Point::Point(const Point& other)
+Point::Point(const Point& other) // Debug - copyed corectly
 {
-	delete _coord;
-	_coord = other._coord;
+	_coord = new int[2];
+	_coord[0] = other._coord[0];
+	_coord[1] = other._coord[1];
 }
 
 Point::~Point()
 {
-	delete _coord;
+	delete[] _coord; // Debug - added []
 }
 
 Point& Point::operator=(const Point& other)
 {
-	delete _coord;
+	delete[] _coord; // Debug - added []
 	_coord = new int[2];
-	memcpy(_coord, other._coord, 2);
+	memcpy(_coord, other._coord, 2*sizeof(int)); // Debug - added sizeof(int)
 	return *this;
 }
 
