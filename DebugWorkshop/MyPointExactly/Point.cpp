@@ -28,6 +28,7 @@ Point::~Point()
 
 Point& Point::operator=(const Point& other)
 {
+	if (this == &other) return *this; // Debug - Check if both objects are the same instance
 	delete[] _coord; // Debug - added []
 	_coord = new int[2];
 	memcpy(_coord, other._coord, 2*sizeof(int)); // Debug - added sizeof(int)
